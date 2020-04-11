@@ -84,10 +84,6 @@ img{
 }
 
 
-.project:hover{
-    background-color: lightcoral;
-}
-
 .dots{
     display: flex;
     justify-content: space-evenly;

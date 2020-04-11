@@ -4,10 +4,8 @@ var projectWidth = document.querySelector('.project').offsetWidth;
 var projectsWidth = document.querySelector('.projects').offsetWidth;
 var project = document.querySelectorAll('.project');
 var dot = document.querySelectorAll('.dot');
+var projectCount = project.length;
 
-let projectCount = project.length;
-let projectMargins = parseFloat(window.getComputedStyle(project[0]).marginLeft) + parseFloat(window.getComputedStyle(project[0]).marginRight);
-console.log(projectMargins);
 
 function setTransform(){
     projects.style.transform = 'translate(' + (0.5*projectsWidth - (pos*projectWidth)) + 'px)';
@@ -16,16 +14,14 @@ function setTransform(){
 
 function next(){
     dot[pos].classList.remove('active');
-    pos = pos + 1;
+    pos = Math.min(pos + 1, projectCount - 1);
     setTransform();
-    console.log(pos);
 }
 
 function back(){
     dot[pos].classList.remove('active');
-    pos = pos - 1;
+    pos = Math.max(pos - 1, 0);
     setTransform();
-    console.log(pos);
 }
 
 setTransform();
