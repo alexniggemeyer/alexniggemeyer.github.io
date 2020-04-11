@@ -26,6 +26,7 @@ function back(){
 }
 
 setTransform();
+window.addEventListener('resize', setTransform);
 
 
 var touchstartX = 0;
@@ -57,5 +58,20 @@ function handleGesure() {
     }
 }
 
+let menuButton = document.querySelector('.menuButton')
+let menu = document.querySelector('.menu');
 
-window.addEventListener('resize', setTransform);
+menuButton.addEventListener('click', function(){
+    menu.style.display = "block";
+});
+
+document.addEventListener('click', function(evt){
+    let tartgetElement = evt.target;
+    
+    if (tartgetElement != menu && tartgetElement != menuButton && menu.style.display === "block"){
+            menu.style.display = "none";        
+    }
+
+});
+
+
