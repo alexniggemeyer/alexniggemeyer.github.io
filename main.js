@@ -1,5 +1,5 @@
 var pos = 0;
-var slider = document.querySelector('.projectSlider');
+var slider = document.querySelector('.projectslider');
 var projects = document.querySelector('.projects');
 var projectWidth = document.querySelector('.project').offsetWidth;
 var projectsWidth = document.querySelector('.projects').offsetWidth;
