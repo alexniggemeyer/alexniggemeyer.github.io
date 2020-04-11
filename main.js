@@ -33,35 +33,27 @@ var touchstartY = 0;
 var touchendX = 0;
 var touchendY = 0;
 
+
 slider.addEventListener('touchstart', function(event) {
-    touchstartX = event.screenX;
-    touchstartY = event.screenY;
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+    
 }, false);
 
 slider.addEventListener('touchend', function(event) {
-    touchendX = event.screenX;
-    touchendY = event.screenY;
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
     handleGesure();
+
 }, false); 
 
 function handleGesure() {
     var swiped = 'swiped: ';
     if (touchendX < touchstartX) {
-        alert(swiped + 'left!');
         next();
     }
     if (touchendX > touchstartX) {
-        alert(swiped + 'right!');
         back();
-    }
-    if (touchendY < touchstartY) {
-        alert(swiped + 'down!');
-    }
-    if (touchendY > touchstartY) {
-        alert(swiped + 'left!');
-    }
-    if (touchendY == touchstartY) {
-        alert('tap!');
     }
 }
 
