@@ -1,4 +1,5 @@
 var pos = 0;
+var slider = document.querySelector('.projectSlider');
 var projects = document.querySelector('.projects');
 var projectWidth = document.querySelector('.project').offsetWidth;
 var projectsWidth = document.querySelector('.projects').offsetWidth;
@@ -26,6 +27,43 @@ function back(){
 
 setTransform();
 
+
+var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+slider.addEventListener('touchstart', function(event) {
+    touchstartX = event.screenX;
+    touchstartY = event.screenY;
+}, false);
+
+slider.addEventListener('touchend', function(event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    handleGesure();
+}, false); 
+
+function handleGesure() {
+    var swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        alert(swiped + 'left!');
+        next();
+    }
+    if (touchendX > touchstartX) {
+        alert(swiped + 'right!');
+        back();
+    }
+    if (touchendY < touchstartY) {
+        alert(swiped + 'down!');
+    }
+    if (touchendY > touchstartY) {
+        alert(swiped + 'left!');
+    }
+    if (touchendY == touchstartY) {
+        alert('tap!');
+    }
+}
 
 
 window.addEventListener('resize', setTransform);
