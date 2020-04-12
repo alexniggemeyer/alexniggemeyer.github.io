@@ -9,8 +9,11 @@ body{
 
 section{
     height: 100vh;
-    border-top: solid;
+    border-top: solid #F9F9F9;
+    
 }
+
+/* Heading styling */
 
 h1{
     font-weight: 800;
@@ -33,25 +36,23 @@ p{
     text-align: center;
 }
 
-img{
-    display: block;
-    width: 60%;
-    margin: 20px auto;
-}
+/* Menu Section */
 
 .menuButton{
     position: fixed;
     right: 0;
     bottom: 0;
     z-index: 2;
-    background-color: bisque;
+    color: white;
+    background-color: #F9693B;
+    box-shadow:  3px -3px 5 px lightgray;
     text-align: center;
     font-weight: 800;
-    font-size: 6vh;
-    line-height: 6vh;
-    padding: 2.5vh;
-    margin: 2vh 2vh;
-    border-radius: 50%;
+    font-size: 40px;
+    line-height: 40px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 50% 50% 0 50%;
     cursor: pointer;
 }
 
@@ -61,8 +62,8 @@ img{
     z-index: 2;
     bottom: 0;
     width: 100%;
-    background-color: bisque;
-    
+    color: white;
+    background-color: #F9693B;
 }
 
 .menu h3{
@@ -83,20 +84,15 @@ img{
 
 .menu li{
     padding: 1vh 0;
-    
-    
 }
 
 
 
 .menu a{
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: 700;
     font-size: 6vh;
-    
-    
-
 }
 
 .line{
@@ -104,7 +100,7 @@ img{
     display: block;
     width: 95%;
     right:0;
-    background-color: black;
+    background-color: white;
     height: .7vh;
 
 }
@@ -119,6 +115,14 @@ img{
     height: 30%;
 }
 
+/* Section Styling */
+
+#title{
+    background-color: #366EFF;
+    color: white;
+}
+
+/* Projectslider*/
 
 .projectslider{
     overflow: hidden;
@@ -126,6 +130,8 @@ img{
     justify-content: space-between;
     
 }
+
+
 .projects{
 
     padding: 0;
