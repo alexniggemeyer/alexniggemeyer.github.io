@@ -74,4 +74,13 @@ document.addEventListener('click', function(evt){
 
 });
 
+// address bar jumping-fix
+
+var els = document.querySelector('section')
+
+els.onload = function() {
+    this.style.minHeight = this.clientHeight + 'px';
+  }
+
+
 
