@@ -74,14 +74,17 @@ document.addEventListener('click', function(evt){
 
 });
 
-// address bar jumping-fix
+// set the min-Height of each setion to the viewport height
 
-var els = document.querySelector('section');
+var section = document.querySelectorAll('section');
 
 function setMinHeight() {
-    els.style.minHeight = window.screen.availHeight + 'px';
-    console.log(window.screen.availHeight);
-  }
+    section.forEach(element => {
+        element.style.minHeight = window.screen.availHeight + 'px';
+        console.log(window.screen.availHeight);        
+    });
+
+}
 
 setMinHeight();
 
