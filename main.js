@@ -76,11 +76,14 @@ document.addEventListener('click', function(evt){
 
 // address bar jumping-fix
 
-var els = document.querySelector('section')
+var els = document.querySelector('section');
 
-els.onload = function() {
-    this.style.minHeight = this.clientHeight + 'px';
+function setMinHeight() {
+    els.style.minHeight = window.screen.availHeight + 'px';
+    console.log(window.screen.availHeight);
   }
+
+setMinHeight();
 
 
 
