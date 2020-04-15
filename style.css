@@ -31,6 +31,7 @@ h2{
 
 h3{
     font-size: 2rem;
+    margin-bottom: 0;
 }
 
 h4{
@@ -228,7 +229,14 @@ p{
 
 /*About me */
 #aboutMe{
-    margin: 0 5%;;
+    margin: 0 0 0 5%;
+}
+
+#aboutMe span{
+    display: block;
+    background-color: black;
+    width: 100%;
+    height: .2rem;
 }
 .skillList{
     display: flex;
