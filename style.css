@@ -125,46 +125,27 @@ p{
 /* Projectslider*/
 
 .projectslider{
-    overflow: hidden;
-    height: 70%;
-    justify-content: space-between;
-    
+    overflow: hidden;   
 }
 
 
 .projects{
-
-    padding: 0;
-    margin: auto;
-    list-style-type: none;
-    white-space: nowrap;
-    font-size: 0;
-    line-height: 0;
-    width: 100%;
-    transition: transform 0.5s ease;
-    margin-bottom: 10%;
-
-
-       
-
+    display: grid;
+    grid-template-columns: repeat(3, 100vw);
+    margin: 5% 0;
+    
 }
 
 .project{
-    display: inline-block;
     border-radius: 10px;
-    transform: translate(-50%);
-    width: 80%;
-    
-
+    transition: transform 0.5s ease;
 }
 
 .projectContent{
-    background-color: white;
     border-radius: 10px;
-    width: 80%;
-    height: 50vh;
-    padding: 5%;
+    width: 90%;
     margin: 0 5%;
+    
 }
 .projectContent h3{
     text-align: center;
@@ -172,6 +153,35 @@ p{
     line-height: 21px;
 }
 
+.projectContent p{
+    display: none;
+    margin: auto;
+    padding: 2rem;
+    color: white;
+    transition: display 0.5s ease;
+}
+
+.imgWrap{
+    display: flex;
+    height: 300px;
+    border-radius: 10px;
+}
+.imgWrap img{
+    flex: 0 70%;
+    margin: auto;
+    transition: display 0.5s ease;
+}
+
+.moreButton{
+    display: block;
+    font-size: 1.5rem;
+    width: 50%;
+    padding: .5rem;
+    margin: 3rem auto 0 auto;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.2);
+    
+}
 .dots{
     display: flex;
     justify-content: space-evenly;
@@ -190,4 +200,35 @@ p{
 .active{
     background-color: #444444;
     transition: background-color 0.5s ease;
+}
+
+/* Projectbased styling*/
+
+#artificialUser{
+    background-color: #AF58A0;
+}
+
+#ik{
+    background-color: #FEE01E;
+}
+
+#passwords{
+    background-color: #444444;
+}
+
+
+/* Testspace */
+
+.wrapper {
+    border: solid black;
+    display: grid;
+    grid-template-columns: 100vw 100vw 100vw;
+    overflow: hidden;
+    
+  }
+
+.wrapper div {
+    background-color: #366EFF;
+    text-align: center;
+    transform: translate(-100vw);
 }

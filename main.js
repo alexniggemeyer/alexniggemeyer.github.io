@@ -9,7 +9,10 @@ var projectCount = project.length;
 
 
 function setTransform(){
-    projects.style.transform = 'translate(' + (0.5*projectsWidth - (pos*projectWidth)) + 'px)';
+
+    project.forEach(element => {
+        element.style.transform = 'translate(' + ( -pos*projectWidth) + 'px)';
+    });
     dot[pos].classList.add('active');
 }
 
@@ -87,6 +90,30 @@ function setMinHeight() {
 }
 
 setMinHeight();
+
+//show intro of project
+
+var wrapper = document.querySelectorAll('.imgWrap')
+var img = document.querySelectorAll('.imgWrap img');
+var text = document.querySelectorAll('.imgWrap p');
+
+
+img.forEach((element, index) => {
+    element.addEventListener('click', function(){
+        text[index].style.display = 'block';
+        element.style.display = 'none';
+    });
+})
+
+text.forEach((element, index) => {
+    element.addEventListener('click', function(){
+        element.style.display = 'none';
+        img[index].style.display = '';
+    });
+});
+
+var moreButton = document.querySelector('.moreButton');
+
 
 
 
