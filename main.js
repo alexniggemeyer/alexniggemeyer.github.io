@@ -83,8 +83,7 @@ var section = document.querySelectorAll('section');
 
 function setMinHeight() {
     section.forEach(element => {
-        element.style.minHeight = window.screen.availHeight + 'px';
-        console.log(window.screen.availHeight);        
+        element.style.minHeight = window.screen.availHeight + 'px';   
     });
 
 }
