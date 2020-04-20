@@ -255,7 +255,7 @@ p{
     height: .2rem;
 }
 .skillList{
-    margin: 3%;
+    margin: 3% 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -287,7 +287,7 @@ ul{
     font-weight: 700;
     font-size: 0.9rem;
     padding: 3%;
-    margin: 0;
+    margin: 3% 0;
 }
 
 li span{
@@ -295,17 +295,3 @@ li span{
     font-weight: 700;
 }
 /* Testspace */
-
-.wrapper {
-    border: solid black;
-    display: grid;
-    grid-template-columns: 100vw 100vw 100vw;
-    overflow: hidden;
-    
-  }
-
-.wrapper div {
-    background-color: #366EFF;
-    text-align: center;
-    transform: translate(-100vw);
-}
