@@ -55,7 +55,7 @@ p{
     bottom: 0;
     z-index: 2;
     color: white;
-    background-color: #F9693B;
+    background-color: #FFA451;
     box-shadow:  3px -3px 5 px lightgray;
     text-align: center;
     font-weight: 800;
@@ -74,7 +74,7 @@ p{
     bottom: 0;
     width: 100%;
     color: white;
-    background-color: #F9693B;
+    background-color: #FFA451;
 }
 
 .menu h3{
