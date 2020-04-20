@@ -17,7 +17,7 @@ section{
 
 h1{
     font-weight: 800;
-    font-size: 5rem;
+    font-size: 4rem;
     text-align: center;
 }
 
@@ -132,6 +132,22 @@ p{
     background-color: #366EFF;
     color: white;
 }
+.subheading{
+    text-align: center;
+    margin: 0;
+    
+}
+.subheading span{
+    display: block;
+    color:  #FFA451;
+    font-weight: 800;
+    padding: 5%;
+    margin: 0;;
+
+    
+}
+
+
 
 /* Projectslider*/
 
@@ -174,7 +190,7 @@ p{
 
 .imgWrap{
     display: flex;
-    height: 300px;
+    min-height: 300px;
     border-radius: 10px;
 }
 .imgWrap img{
@@ -232,28 +248,51 @@ p{
     margin: 0 0 0 5%;
 }
 
-#aboutMe span{
+.underline{
     display: block;
     background-color: black;
     width: 100%;
     height: .2rem;
 }
 .skillList{
+    margin: 3%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .skillList div{
-    flex: 0 50%;
+    margin: 0;
+    flex-basis: 150px;
     text-align: center;
+    height: 150px;
+}
+
+.skillList img{
+    margin: 1rem auto auto auto ;
+    display:block;
+    width: 100%;
+    max-width: 90px;;
+}
+
+.skillList span{
+    display: block;
+    padding-top: 1rem;
+
 }
 
 ul{
     list-style-type: none;
     font-weight: 700;
     font-size: 0.9rem;
-    padding-left: 3%;
+    padding: 3%;
     margin: 0;
+}
+
+li span{
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 /* Testspace */
 

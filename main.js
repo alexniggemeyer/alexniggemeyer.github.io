@@ -114,5 +114,23 @@ text.forEach((element, index) => {
 var moreButton = document.querySelector('.moreButton');
 
 
+//titel
+
+let words =['reseach', 'prototype', 'experiment', 'explore'];
+
+let wordSpace = document.querySelector('.subheading span');
+let index = 0;
+
+window.setInterval(function(){
+    
+    wordSpace.innerHTML = words[index];
+    index ++;
+    if(index > 3){
+        index =0;
+    }
+}, 1000);
+
+
+    
 
 
