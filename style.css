@@ -200,6 +200,9 @@ p{
 }
 
 .moreButton{
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
     display: block;
     font-size: 1.5rem;
     width: 50%;
