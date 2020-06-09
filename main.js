@@ -93,7 +93,7 @@ setMinHeight();
 //show intro of project
 
 var wrapper = document.querySelectorAll('.imgWrap')
-var img = document.querySelectorAll('.imgWrap img');
+var img = document.querySelectorAll('.projectLogo');
 var text = document.querySelectorAll('.imgWrap p');
 
 

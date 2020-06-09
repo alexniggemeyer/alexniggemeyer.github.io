@@ -178,6 +178,7 @@ p{
     text-align: center;
     font-size: 20px;
     line-height: 21px;
+    margin-bottom: 22px;
 }
 
 .projectContent p{
@@ -192,6 +193,7 @@ p{
     display: flex;
     min-height: 300px;
     border-radius: 10px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 .imgWrap img{
     flex: 0 70%;
@@ -216,14 +218,14 @@ p{
     display: flex;
     justify-content: space-evenly;
     width: 80%;
-    margin: auto;
+    margin: 50px auto auto auto;
 }
 
 .dot{
     display: block;
     flex: 0 20%;
     height: 10px;
-    border: solid #444444;
+    border:  1px solid #444444;
     border-radius: 5px;
 }
 
@@ -235,7 +237,8 @@ p{
 /* Projectbased styling*/
 
 #artificialUser{
-    background-color: #AF58A0;
+    background-color:white;
+    
 }
 
 #ik{
@@ -243,7 +246,16 @@ p{
 }
 
 #passwords{
-    background-color: #444444;
+    background-color: #242424;
+}
+
+#passwords h6{
+    display: block;
+    margin: auto;
+    font-family: 'Roboto Mono';
+    font-size: 3.5rem;
+    color: #D74557;
+    font-weight: 400;
 }
 
 /*About me */
