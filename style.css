@@ -238,7 +238,14 @@ p{
 
 #artificialUser{
     background-color:white;
-    
+}
+
+#artificialUser p{
+    color: #444444;
+}
+
+#artificialUser .moreButton{
+    background-color: rgba(99, 99, 99, 0.603);
 }
 
 #ik{
