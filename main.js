@@ -88,35 +88,78 @@ function setMinHeight() {
 
 }
 
-setMinHeight();
+//setMinHeight();
 
 //show intro of project
 
-var wrapper = document.querySelectorAll('.imgWrap')
-var img = document.querySelectorAll('.projectLogo');
-var text = document.querySelectorAll('.imgWrap p');
+// is mobile?
+
+var mobile = false;
+
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)){
+
+            mobile = true;
+        }
 
 
-img.forEach((element, index) => {
-    element.addEventListener('click', function(){
-        text[index].style.display = 'block';
-        element.style.display = 'none';
-    });
-})
+var wrapper = document.querySelectorAll('.project');
 
-text.forEach((element, index) => {
-    element.addEventListener('click', function(){
-        element.style.display = 'none';
-        img[index].style.display = '';
-    });
+wrapper.forEach((element, index) => {
+
+    var img = element.querySelector('.projectLogo');
+    var text = element.querySelector('p');
+
+    var displayMode = window.getComputedStyle(img).display;
+
+    if(mobile === true){
+        element.addEventListener('click', function(){
+            if(displayMode === 'block'){
+                text.style.display = 'block';
+                img.style.display = 'none';
+                displayMode = window.getComputedStyle(img).display;
+                
+            }else{
+                text.style.display = 'none';
+                img.style.display = 'block';
+                displayMode = window.getComputedStyle(img).display;
+            }
+   
+        });
+
+    }else{
+        element.addEventListener('mouseover', function(){
+            text.style.display = 'block';
+            img.style.display = 'none';
+        });
+        element.addEventListener('mouseout', function(){
+            text.style.display = 'none';
+            img.style.display = 'block';
+        });
+    }
 });
 
+
 var moreButton = document.querySelector('.moreButton');
+
+//header parallax
+
+
+window.addEventListener('scroll', ()=>{
+    var scroll = window.pageYOffset;
+    document.querySelector('.move').style.top = scroll /-2.5 + 'px';
+})
+
 
 
 //titel
 
-let words =['reseach', 'prototype', 'experiment', 'explore'];
+/*let words =['reseach', 'prototype', 'experiment', 'explore'];
 
 let wordSpace = document.querySelector('.subheading span');
 let index = 0;
@@ -128,7 +171,7 @@ window.setInterval(function(){
     if(index > 3){
         index =0;
     }
-}, 1000);
+}, 1000);*/
 
 
     
