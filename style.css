@@ -301,8 +301,12 @@ p{
 .aboutMe p {
     display: block;
     width: 90%;
-    margin: 5rem;
+    margin: auto;
 
+}
+
+.dev{
+    margin: 3rem auto 2rem auto;
 }
 
 .skillList{
@@ -310,7 +314,7 @@ p{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .skillList div{
@@ -319,7 +323,7 @@ p{
 
 .skillList img{
     display: block;
-    width: 4em;
+    width: 3rem;
     margin: auto;
 }
 
@@ -395,10 +399,13 @@ li span{
         margin: 0;
         
     }
-
-    .myslef img {
-        flex-basis: 40%;
+    .aboutMe p {
+        display: block;
+        width: 90%;
+        margin: 5rem;
+    
     }
+
 
 
 
