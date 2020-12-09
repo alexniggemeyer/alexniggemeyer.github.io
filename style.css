@@ -319,6 +319,7 @@ p{
 
 .skillList div{
  margin-bottom: 2em;
+ flex-basis: 30%;
 }
 
 .skillList img{
@@ -405,6 +406,11 @@ li span{
         margin: 5rem;
     
     }
+
+    .skillList div{
+        margin-bottom: 2em;
+        flex-basis: 0;
+       }
 
 
 
