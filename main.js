@@ -114,6 +114,9 @@ wrapper.forEach((element, index) => {
 
     var img = element.querySelector('.projectLogo');
     var text = element.querySelector('p');
+    var heading = element.querySelector('h3');
+
+    
 
     var displayMode = window.getComputedStyle(img).display;
 
@@ -135,10 +138,15 @@ wrapper.forEach((element, index) => {
     }else{
         element.addEventListener('mouseover', function(){
             text.style.display = 'block';
+            heading.style.display = 'block';
             img.style.display = 'none';
+
+            console.log(heading.style.diplay);
+
         });
         element.addEventListener('mouseout', function(){
             text.style.display = 'none';
+            heading.style.display = 'none';
             img.style.display = 'block';
         });
     }
