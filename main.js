@@ -113,9 +113,9 @@ var wrapper = document.querySelectorAll('.project');
 wrapper.forEach((element, index) => {
 
     var img = element.querySelector('.projectLogo');
-    var text = element.querySelector('p');
-    var heading = element.querySelector('h3');
+    var info = element.querySelector('.shortInfo');
 
+    
     
 
     var displayMode = window.getComputedStyle(img).display;
@@ -123,12 +123,12 @@ wrapper.forEach((element, index) => {
     if(mobile === true){
         element.addEventListener('click', function(){
             if(displayMode === 'block'){
-                text.style.display = 'block';
+                info.style.display = 'flex';
                 img.style.display = 'none';
                 displayMode = window.getComputedStyle(img).display;
                 
             }else{
-                text.style.display = 'none';
+                info.style.display = 'none';
                 img.style.display = 'block';
                 displayMode = window.getComputedStyle(img).display;
             }
@@ -137,16 +137,12 @@ wrapper.forEach((element, index) => {
 
     }else{
         element.addEventListener('mouseover', function(){
-            text.style.display = 'block';
-            heading.style.display = 'block';
+            info.style.display = 'flex';
             img.style.display = 'none';
-
-            console.log(heading.style.diplay);
 
         });
         element.addEventListener('mouseout', function(){
-            text.style.display = 'none';
-            heading.style.display = 'none';
+            info.style.display = 'none';
             img.style.display = 'block';
         });
     }
