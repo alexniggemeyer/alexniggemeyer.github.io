@@ -157,6 +157,7 @@ var moreButton = document.querySelector('.moreButton');
 window.addEventListener('scroll', ()=>{
     var scroll = window.pageYOffset;
     document.querySelector('.move').style.top = scroll /-2.5 + 'px';
+    console.log(document.querySelector('.move'));
 })
 
 
