@@ -11,7 +11,7 @@ const depth = document.querySelector("#depth");
 container.addEventListener("mousemove", (e) => {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
     let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
-    logo.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    logo.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg)`;
   });
 
 
@@ -25,6 +25,52 @@ container.addEventListener("mouseleave", (e) => {
     background.style.transform = "translateZ(0)";
     depth.style.transform = "translateZ(0)";
     contur.style.transform = "translateZ(0)";
+    logo.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  });
+
+
+  var executed = false;
+  let xOffset;
+  let yOffset;
+
+  window.addEventListener("deviceorientation", (e) =>{
+
+    let yAxis = Math.floor(e.gamma);
+    let xAxis = Math.floor(e.beta);
+
+    if (executed == false){
+        xOffset = xAxis;
+        yOffset = yAxis;
+        executed = true;
+    }
+
+    
+    let xMovement =  (xAxis - xOffset) / 2;
+    let yMovement = (yAxis - yOffset) / 2;
+    logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
+    //container.innerHTML =  `x: ${xMovement} y: ${yAxis} xOffset ${xOffset} yOffset: ${yOffset}` ;
+  });
+
+  window.addEventListener("devicemotion", (e) =>{
+
+    let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
+    let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
+
+    if(xRotationRate >= 90){
+        xRotationRate = 90;
+    }
+    if(yRotationRate >= 90){
+        yRotationRate = 90;
+    }
+    //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
+
+    //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
+
+    background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
+    depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
+    contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
+
+    
   });
 
 

@@ -144,20 +144,22 @@ p{
 }
 
 .logo{
-    width: 400px;
-    height: 400px;
+    
+    width:20rem;
+    height: 20rem;
     transform-style: preserve-3d;
     position: relative;
 }
 
 svg{
     width: 100%;
-    position: absolute; 
+    position: absolute;
+    transition: transform 0.5s;
 }
 
 #shadow{
     fill: rgba(1,1,1,0.5);
-    transform: translate(15px,0);
+    transform: translate(.8rem,0);
 
     z-index: 1;    
 }
