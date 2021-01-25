@@ -1,93 +1,250 @@
-h2{
-    margin: 3%;
-    padding: 0;
+html{
+    font-family: 'Open Sans', sans-serif;
+  
 }
-img{
-    margin: 3% 6%;
-    width: 88%;
+
+body{
+    background-color:  #EFEEEE;
+    margin: 0;
+}
+
+section{
+    
+    position: relative;
+    background-color:  #EFEEEE;
+    padding: 3rem .9375rem ;
+
+}
+
+h3{
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 2.25rem 0;
+    padding:0;
+    text-align: center;
+}
+
+h4{
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: .4rem;
+
+}
+
+svg{
+    display: block;
+    margin: 0 auto 4rem auto;
+    width: 251px;
+    height: 4px;
 }
 
 p{
-    margin: 5% 3% 5% 3%;
-    padding-bottom: 5%;
-    text-align: left;
+    font-size: 1.2rem;
+    max-width:41.25rem;
+    line-height: 1.6rem;
 }
 
-video {
-    margin: 3% 6%;
-    width: 88%;
+img{
+    display: block;
+    width: 100%;
+    max-width:31.25rem;
+    margin: 3rem auto;
 }
 
-#intro, #ideation, #takeaway{
-    background-color: #FEE01E;
-    color: white;
+video{
+    display: block;
+    max-width: 41.25rem;
+    margin: auto;
+}
+
+
+#intro{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin:0;  
+    background-color: rgba(255, 255, 255, 0);
+    height: 13rem;
+    padding-bottom: 2rem;
+}
+
+
+header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.move{
+    position: relative;
+    margin: auto
+}
+
+header::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+header img{
+    scale: 1;
+    display: block;
+    max-width: 100%;
+}
+
+.heading{
+    padding: .8rem;
+    margin: 1em;
+    background-color: white;
+    border-radius: 3px;
+    border: solid black 1px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     
-}
+  }
 
-#intro h1{
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-#intro p{
-    color: white;
-    margin: 0 5%;
-    text-align: center;
-}
-
-#intro ul{
-    font-weight: 400;
-    font-size: 1rem;
-
-}
-
-#intro span{
-    font-weight:700;
-    font-size: 1rem;
-}
-
-.githubButton{
+.projectTitle{
     display: block;
-    border: solid #444444;
-    border-radius: 10px;
-    padding: 5px;
-    text-decoration: none;
     font-weight: 700;
-    color: #444444;
-    width: 30%;
+    font-size: 2rem;
+    margin:0;
+    padding: 0;
+}
+
+.projectSubtitle{
+    display: block;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.projectInfo{
+    font-size: .8rem;
+}
+
+
+
+
+
+.question{
+    display: block;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 1rem
+}
+
+.quote{
+    max-width: 39rem;
+    padding:  0rem 0 3rem 0;
+    margin: auto;
+    font-style: italic;
+}
+
+.quote span{
+    font-weight: 600;
+    display: block;
+    text-align: right;
+
+}
+
+.parameters{
+    justify-content: center;
     text-align: center;
-    margin:  10% auto;
+    max-width: 41,25rem;
+    display: grid;
+    grid-template-rows: repeat(3,30vw);
+    grid-template-columns: repeat(3,30vw);
 }
 
-.end{
-    display: block;
-    width: 5rem;
-    height: 4px;
+.parameterItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem;
+    margin: .3rem;
+    border: solid black 1px;
+    border-radius: 3px;
     background-color: white;
-    margin: 10% auto 3%;
-    border-radius: 2px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
 
-.dots{
-    margin: 0px auto 20px auto;
-}
+@media (min-width: 600px){
 
-.dot{
-    display: block;
-    flex: 0 20%;
-    height: 10px;
-    border:  1px solid white;
-    border-radius: 5px;
-}
+    section{
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    p{
+        margin: auto;
+        max-width: 56.25rem;
+    }
 
-.active{
-    background-color: white;
-    transition: background-color 0.5s ease;
-}
+    h3{
+        margin: auto;
+        font-size: 3rem;
+        padding-bottom: 3rem;
+    }
 
-.projectLogo{
-    width: 50%;
-    margin: 3% auto;
-    display: block;
+    h4{
+        font-size: 2rem;
+    }
+
+    img{
+        margin: 6.25rem auto;
+    }
+
+
+    .heading{
+        transform-origin: bottom left;
+        margin: 5em;
+      }
+
+    #intro{
+        padding-top:0;
+        justify-content: left;  
+        background: none;
+    }
+
+    .question{
+        line-height: 3.5rem;
+        font-size: 3rem;
+        padding-bottom: 2rem
+    }
+
+    .parameters{
+        margin: 6.25rem auto;
+        justify-content: center;
+        grid-template-rows: repeat(3,10rem);
+        grid-template-columns: repeat(3,10rem);
+
+    }
+    
+    .parameterItem{
+        margin: 1rem
+    }
+
+    .twoRows{
+        margin: 6.25rem auto;
+        max-width: 70rem;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    .twoRows img{
+        margin: auto 0;
+    }
+
+    .twoRows p{
+        flex-basis: 21rem;
+        margin:0;
+        align-self: start;
+    }
 }

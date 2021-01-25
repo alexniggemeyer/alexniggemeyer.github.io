@@ -1,0 +1,88 @@
+/* Menu Section */
+
+.menuButton{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    color: white;
+    background-color:#2B6B79;
+    box-shadow:  3px -3px 5 px lightgray;
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 40px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 50% 50% 0 50%;
+    cursor: pointer;
+}
+
+.menu{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #2B6B79;
+}
+
+.menu h3{
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5% 5% 0 5% ;
+    font-size: 4vh;
+    margin: 0;
+}
+
+.menu ul{
+    height: 80%;
+    list-style-type: none;
+    padding-top: 1vh;
+    padding-left: 5%;
+    margin: 0;
+}
+
+.menu li{
+    padding: .3vh 0;
+    text-align: center;
+}
+
+
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 4vh;
+}
+
+.line{
+    margin: auto;
+    display: block;
+    width: 90%;
+    background-color: white;
+    height: .2vh;
+
+}
+
+
+@media (min-width: 600px){
+
+    .menu{
+        display: none;
+        position: fixed;
+        right: 0;
+        padding: 15px;
+        margin: 10px;
+        z-index: 2;
+        bottom: 0;
+        width: 30%;
+        color: white;
+        
+        border-radius: 100px 100px 0 100px;
+    }
+
+}
