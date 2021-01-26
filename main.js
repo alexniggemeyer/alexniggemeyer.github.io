@@ -1,3 +1,67 @@
+var mobile = false;
+
+if( navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)){
+
+    mobile = true;
+}  
+
+function requestDeviceMotion(callback) {
+    if (window.DeviceMotionEvent == null) {
+        callback(new Error("DeviceMotion is not supported."));
+    } else if (DeviceMotionEvent.requestPermission) {
+        DeviceMotionEvent.requestPermission().then(function(state) {
+            if (state == "granted") {
+                callback(null);
+            } else callback(new Error("Permission denied by user"));
+        }, function(err) {
+            callback(err);
+        });
+    } else { // no need for permission
+        callback(null);
+    }
+}
+
+function firstClick() {
+    requestDeviceMotion(function(err) {
+        if (err == null) {
+            window.removeEventListener("click", firstClick);
+            window.removeEventListener("touchend", firstClick);
+            window.addEventListener("devicemotion", function(e) {
+                // access e.acceleration, etc.
+                let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
+                let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
+            
+                if(xRotationRate >= 90){
+                    xRotationRate = 90;
+                }
+                if(yRotationRate >= 90){
+                    yRotationRate = 90;
+                }
+                //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
+            
+                //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
+            
+                background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
+                depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
+                contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
+            
+            
+            })} else {
+            // failed; a JS error object is stored in `err`
+            alert('NOOO');
+        }
+    });
+}
+
+window.addEventListener("click", firstClick);
+window.addEventListener("touchend", firstClick);
+
 //animation
 
 const container = document.querySelector(".move");
@@ -8,70 +72,83 @@ const shadow = document.querySelector("#shadow");
 const depth = document.querySelector("#depth");
 
 
-container.addEventListener("mousemove", (e) => {
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
-    logo.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg)`;
-  });
 
+  
 
-container.addEventListener("mouseenter", (e) => {
-    background.style.transform = "translateZ(60px)";
-    depth.style.transform = "translateZ(80px)";
-    contur.style.transform = "translateZ(120px)";
-  });
-
-container.addEventListener("mouseleave", (e) => {
-    background.style.transform = "translateZ(0)";
-    depth.style.transform = "translateZ(0)";
-    contur.style.transform = "translateZ(0)";
-    logo.style.transform = `rotateY(0deg) rotateX(0deg)`;
-  });
-
-
-  var executed = false;
-  let xOffset;
-  let yOffset;
-
-  window.addEventListener("deviceorientation", (e) =>{
-
-    let yAxis = Math.floor(e.gamma);
-    let xAxis = Math.floor(e.beta);
-
-    if (executed == false){
-        xOffset = xAxis;
-        yOffset = yAxis;
-        executed = true;
-    }
-
+    container.addEventListener("mousemove", (e) => {
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+        let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+        logo.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg)`;
+      });
     
-    let xMovement =  (xAxis - xOffset) / 2;
-    let yMovement = (yAxis - yOffset) / 2;
-    logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
-    //container.innerHTML =  `x: ${xMovement} y: ${yAxis} xOffset ${xOffset} yOffset: ${yOffset}` ;
-  });
-
-  window.addEventListener("devicemotion", (e) =>{
-
-    let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
-    let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
-
-    if(xRotationRate >= 90){
-        xRotationRate = 90;
-    }
-    if(yRotationRate >= 90){
-        yRotationRate = 90;
-    }
-    //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
-
-    //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
-
-    background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
-    depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
-    contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
-
     
-  });
+    container.addEventListener("mouseenter", (e) => {
+        background.style.transform = "translateZ(60px)";
+        depth.style.transform = "translateZ(80px)";
+        contur.style.transform = "translateZ(120px)";
+      });
+    
+    container.addEventListener("mouseleave", (e) => {
+        background.style.transform = "translateZ(0)";
+        depth.style.transform = "translateZ(0)";
+        contur.style.transform = "translateZ(0)";
+        logo.style.transform = `rotateY(0deg) rotateX(0deg)`;
+      });
+
+    var executed = false;
+    let xOffset;
+    let yOffset;    
+    
+    
+      window.addEventListener("deviceorientation", (e) =>{
+  
+        let yAxis = Math.floor(e.gamma);
+        let xAxis = Math.floor(e.beta);
+    
+        if (executed == false){
+            xOffset = xAxis;
+            yOffset = yAxis;
+            executed = true;
+        }
+    
+        
+        let xMovement =  (xAxis - xOffset) / 2;
+        let yMovement = (yAxis - yOffset) / 2;
+        logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
+        //container.innerHTML =  `x: ${xMovement} y: ${yAxis} xOffset ${xOffset} yOffset: ${yOffset}` ;
+    });
+
+
+
+ 
+  
+
+  
+  /*window.addEventListener("devicemotion", (e) =>{
+  
+      let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
+      let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
+  
+      if(xRotationRate >= 90){
+          xRotationRate = 90;
+      }
+      if(yRotationRate >= 90){
+          yRotationRate = 90;
+      }
+      //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
+  
+      //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
+  
+      background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
+      depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
+      contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
+  
+      
+  });*/
+
+
+
+  
 
 
 //header parallax
