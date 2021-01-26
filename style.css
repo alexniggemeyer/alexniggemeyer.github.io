@@ -161,7 +161,7 @@ svg{
     fill: rgba(1,1,1,0.5);
     transform: translate(.8rem,0);
 
-    z-index: 1;    
+    z-index: -1;    
 }
 
 #background {

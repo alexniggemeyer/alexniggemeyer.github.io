@@ -33,7 +33,7 @@ function firstClick() {
             window.removeEventListener("click", firstClick);
             window.removeEventListener("touchend", firstClick);
             window.addEventListener("devicemotion", function(e) {
-                // access e.acceleration, etc.
+
                 let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
                 let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
             
@@ -43,20 +43,35 @@ function firstClick() {
                 if(yRotationRate >= 90){
                     yRotationRate = 90;
                 }
-                //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
-            
-                //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
             
                 background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
                 depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
                 contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
+        
+            });
+
+            window.addEventListener("deviceorientation", (e) =>{
+  
+                let yAxis = Math.floor(e.gamma);
+                let xAxis = Math.floor(e.beta);
             
+                if (executed == false){
+                    xOffset = xAxis;
+                    yOffset = yAxis;
+                    executed = true;
+                }
             
-            })
-            alert('yes');
+                
+                let xMovement =  (xAxis - xOffset) / 2;
+                let yMovement = (yAxis - yOffset) / 2;
+                logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
+                
+            });
+        
+
         } else {
             // failed; a JS error object is stored in `err`
-            alert('NOOO');
+            alert(":'(");
         }
     });
 }
@@ -102,7 +117,7 @@ const depth = document.querySelector("#depth");
     let yOffset;    
     
     
-      window.addEventListener("deviceorientation", (e) =>{
+    /*  window.addEventListener("deviceorientation", (e) =>{
   
         let yAxis = Math.floor(e.gamma);
         let xAxis = Math.floor(e.beta);
@@ -118,7 +133,7 @@ const depth = document.querySelector("#depth");
         let yMovement = (yAxis - yOffset) / 2;
         logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
         //container.innerHTML =  `x: ${xMovement} y: ${yAxis} xOffset ${xOffset} yOffset: ${yOffset}` ;
-    });
+    });*/
 
 
 
