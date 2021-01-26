@@ -52,7 +52,9 @@ function firstClick() {
                 contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
             
             
-            })} else {
+            })
+            alert('yes');
+        } else {
             // failed; a JS error object is stored in `err`
             alert('NOOO');
         }
