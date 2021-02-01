@@ -277,7 +277,6 @@ svg{
 
 .imgWrap{
     overflow: hidden;
-    min-height: 300px;
     border-radius: 10px;
     height: 100%;
 }

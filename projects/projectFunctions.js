@@ -28,3 +28,44 @@ function headerSizing(){
 headerSizing();
 
 window.addEventListener('resize', headerSizing);
+
+// Popuphandler
+
+let gridItem = document.querySelectorAll('.gridItem');
+let popup = document.querySelector('.popup');
+let Arrow = document.createElement("style");
+document.head.appendChild(Arrow);
+
+
+gridItem.forEach(element => {
+    
+    element.addEventListener('mouseover', (e)=>{
+        
+        console.log(element.offsetHeight);
+
+        if(element.className == "gridItem prototype"){
+            popup.textContent = "Import the prototype!"
+        }
+        if(element.className == "gridItem userSettings"){
+            popup.textContent = " Adjust the properties of the user to your needs."
+        }
+        if(element.className == "gridItem preview"){
+            popup.textContent = "The Preview shows the predejtions based on the usersettings."
+        }
+        if(element.className == "gridItem log"){
+            popup.textContent = "The Log Window outputs interactions of the artificial User with the prototype, to give detailed feedback."
+        }
+
+        let popupWidth = popup.offsetWidth;
+
+        if(element.offsetLeft < 330){
+            Arrow.innerHTML = ".popup:before{ content: ''; position: absolute; border-width: 1rem; top: 1rem; margin-left: -3rem; border-style: solid; border-color:  transparent #39B4CF transparent transparent;}";
+            popup.setAttribute("style", `display: inline; transform: translate(${element.offsetLeft+element.offsetWidth+16}px, ${element.offsetTop + (element.offsetHeight/4)}px)`);
+            
+        }else{
+            Arrow.innerHTML = ".popup:after{ content: ''; position: absolute; border-width: 1rem; top: 1rem; margin-left: 50%; left: 50%;border-style: solid; border-color:  transparent transparent transparent  #39B4CF;}";
+            popup.setAttribute("style", `display: inline; transform: translate(${element.offsetLeft -popupWidth -16}px, ${element.offsetTop + (element.offsetHeight/4)}px)`);
+        };
+    });
+});
+

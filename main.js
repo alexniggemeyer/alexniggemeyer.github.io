@@ -11,6 +11,9 @@ if( navigator.userAgent.match(/Android/i)
     mobile = true;
 }  
 
+
+// permission request
+
 function requestDeviceMotion(callback) {
     if (window.DeviceMotionEvent == null) {
         callback(new Error("DeviceMotion is not supported."));
@@ -22,10 +25,17 @@ function requestDeviceMotion(callback) {
         }, function(err) {
             callback(err);
         });
-    } else { // no need for permission
+    } else {
         callback(null);
     }
 }
+
+
+var executed = false;
+let xOffset;
+let yOffset;  
+
+// Permission on first click , maybe change it to onload ?
 
 function firstClick() {
     requestDeviceMotion(function(err) {
@@ -70,7 +80,8 @@ function firstClick() {
         
 
         } else {
-            // failed; a JS error object is stored in `err`
+            window.removeEventListener("click", firstClick);
+            window.removeEventListener("touchend", firstClick);
             alert(":'(");
         }
     });
@@ -112,61 +123,9 @@ const depth = document.querySelector("#depth");
         logo.style.transform = `rotateY(0deg) rotateX(0deg)`;
       });
 
-    var executed = false;
-    let xOffset;
-    let yOffset;    
+  
     
     
-    /*  window.addEventListener("deviceorientation", (e) =>{
-  
-        let yAxis = Math.floor(e.gamma);
-        let xAxis = Math.floor(e.beta);
-    
-        if (executed == false){
-            xOffset = xAxis;
-            yOffset = yAxis;
-            executed = true;
-        }
-    
-        
-        let xMovement =  (xAxis - xOffset) / 2;
-        let yMovement = (yAxis - yOffset) / 2;
-        logo.style.transform = `rotateY(${yMovement}deg) rotateX(${xMovement}deg)`;
-        //container.innerHTML =  `x: ${xMovement} y: ${yAxis} xOffset ${xOffset} yOffset: ${yOffset}` ;
-    });*/
-
-
-
- 
-  
-
-  
-  /*window.addEventListener("devicemotion", (e) =>{
-  
-      let xRotationRate = Math.abs(Math.round(e.rotationRate.alpha));
-      let yRotationRate = Math.abs(Math.round(e.rotationRate.beta));
-  
-      if(xRotationRate >= 90){
-          xRotationRate = 90;
-      }
-      if(yRotationRate >= 90){
-          yRotationRate = 90;
-      }
-      //logo.style.transform = `rotateY(${yRotationRate / 3}deg) rotateX(${xRotationRate /3}deg)`;
-  
-      //container.innerHTML =  `x: ${xRotationRate} y: ${yRotationRate}` ;
-  
-      background.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2}px)`;
-      depth.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2 * 1.2}px)`;
-      contur.style.transform = `translateZ(${(xRotationRate + yRotationRate)/2* 1.5}px)`;
-  
-      
-  });*/
-
-
-
-  
-
 
 //header parallax
 

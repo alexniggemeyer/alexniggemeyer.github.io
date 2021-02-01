@@ -175,6 +175,68 @@ header img{
 
 }
 
+.grid{
+    position: relative;
+    margin: auto;
+    max-width: 70rem;
+    display: grid;
+    grid-template-rows: 4% 13% 1fr 1%;
+    grid-template-columns: 29.2% 47.2% 23.6%;    
+}
+
+.gridItem {
+    z-index: 1;
+    border-radius: 5px;
+    margin: .2rem;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.gridItem:hover{
+    border: solid #39B4CF 4px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.background{
+    max-width: 100%;
+    margin: 0;
+    grid-row: 1 / 4;
+    grid-column: 1 / 4;
+}
+
+
+
+.prototype{
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.userSettings{
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+.preview{
+    grid-row: 2 / 4;
+    grid-column: 2 / 3;
+}
+
+.log{
+    grid-row: 2 / 4;
+    grid-column: 3 / 4;
+}
+
+.popup{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    max-width: 10rem;
+    background-color: #39B4CF;
+    padding: 1rem;
+    border-radius: 3px;
+
+}
+
+
 @media (min-width: 600px){
 
     section{
