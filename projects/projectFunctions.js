@@ -1,3 +1,4 @@
+
 //Remaping Inputs to new Range
 
 function remap(input,min,max,newMin,newMax){
@@ -100,24 +101,65 @@ gridItem.forEach(element => {
 
 
 let counterText = document.querySelector(".counter");
-let counter = 0;
-counterText.textContent = counter;
+counterText.textContent = 0;
+
+var counterTest = {
+    value: 0,
+};
+
+let pathLeft = document.querySelectorAll(".left path");
+let circleLeft = document.querySelectorAll(".left circle");
+let pathRight = document.querySelectorAll(".right path");
+let circleRight = document.querySelectorAll(".right circle");
+let circleTop = document.querySelectorAll(".top circle");
+let pathTop = document.querySelectorAll(".top path");
+
+
+
+var tl = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 1000,
+    autoplay: false,
+  });
+
+tl
+.add({
+    targets: counterTest,
+    value: 575,
+    round: 1,
+    easing: 'linear',
+    update: function() {
+        counterText.textContent = JSON.stringify(counterTest.value);
+    }
+})
+.add({
+    targets: [circleLeft,circleRight, circleTop],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 250,
+    direction: 'reverse',
+  })
+.add({
+    targets: [pathLeft, pathRight, pathTop],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 250,
+    direction: 'normal',
+})
+
 
 
 window.addEventListener('scroll', (e)=>{
-    console.log(counterText.getBoundingClientRect().top);
+
     if(counterText.getBoundingClientRect().top < 700){
-        let test = setInterval(() => {
-            if(counter < 575){
-                counter += 1;
-                counterText.textContent = counter;        
-            }
-        
-            
-        }, 1);
+
+        tl.play();
     }
     
 
     
 });
+
+
+
 
