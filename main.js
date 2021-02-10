@@ -33,7 +33,14 @@ function requestDeviceMotion(callback) {
 
 var executed = false;
 let xOffset;
-let yOffset;  
+let yOffset;
+
+const container = document.querySelector(".move");
+const logo = document.querySelector(".logo");
+const contur = document.querySelector("#contur");
+const background = document.querySelector("#background");
+const shadow = document.querySelector("#shadow");
+const depth = document.querySelector("#depth");
 
 // Permission on first click , maybe change it to onload ?
 
@@ -90,18 +97,9 @@ function firstClick() {
 window.addEventListener("click", firstClick);
 window.addEventListener("touchend", firstClick);
 
-//animation
-
-const container = document.querySelector(".move");
-const logo = document.querySelector(".logo");
-const contur = document.querySelector("#contur");
-const background = document.querySelector("#background");
-const shadow = document.querySelector("#shadow");
-const depth = document.querySelector("#depth");
+//animation desktop
 
 
-
-  
 
     container.addEventListener("mousemove", (e) => {
         let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
