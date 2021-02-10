@@ -87,8 +87,8 @@ function firstClick() {
     });
 }
 
-window.addEventListener("click", firstClick);
-window.addEventListener("touchend", firstClick);
+window.addEventListener("load", firstClick);
+//window.addEventListener("touchend", firstClick);
 
 //animation
 

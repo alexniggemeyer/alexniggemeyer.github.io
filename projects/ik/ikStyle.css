@@ -17,11 +17,12 @@ section{
 }
 
 h3{
+    display: block;
     font-weight: 700;
     font-size: 1.5rem;
-    margin: 2.25rem 0;
+    margin: 0;
     padding:0;
-    text-align: center;
+    z-index: 1;
 }
 
 h4{
@@ -52,11 +53,23 @@ img{
     margin: 3rem auto;
 }
 
-video{
-    display: block;
-    max-width: 41.25rem;
-    margin: auto;
+.titleBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 6.25rem 0 3rem 0 ;
 }
+
+.underline{
+    border-radius: 10px;
+    display: block;
+    height: 2rem;
+    width: 40rem;
+    background-color: #FEE01E;
+    transform: translateY(-1.5rem);
+}
+
 
 
 #intro{
@@ -130,9 +143,11 @@ header img{
 
 .keyFacts{
     display: flex;
+    flex-direction: column;
     max-width: 60rem;
     margin: 3rem auto;
     justify-content: center;
+    align-items: center;
 }
 
 .keyFactsItem{
@@ -155,8 +170,41 @@ header img{
     padding: 2rem
 }
 
+.keyFunctions{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6.25rem auto;
+    max-width: 60rem;
+    justify-content: space-evenly;
+}
+
+.keyFunctions div{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #1640AD;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.keyFunctions img{
+    max-height: 5.2rem;
+    margin: 0;
+}
+
+.keyFunctions h5{
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0  ;
+}
+
 
 .question{
+    text-align: center;
     display: block;
     font-style: italic;
     font-weight: 700;
@@ -183,8 +231,8 @@ header img{
     margin: 3rem auto;
     max-width: 25rem;
     display: grid;
-    grid-template-rows: repeat(2,50%);
-    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1.5rem;
 }
 
@@ -194,11 +242,159 @@ header img{
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
-    border-radius: 3px;
+    border-radius: 15px;
     background-color: #1640AD;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
 }
+
+.onlineservices{
+    align-items: center;
+    margin: 6.25rem auto;
+    max-width: 41.25rem;
+    display: grid;
+    grid-template-rows: repeat(6,16%);
+    grid-template-columns: repeat(2, 50%);
+    gap: 1rem;
+}
+
+.onlineserviceName{
+    text-align: right;
+    font-weight: 700;
+}
+
+.onlineserviceValue{
+    width: 0;
+    color: rgba(225,255,255, 0);
+    background-color: #1640AD;
+    padding: 1rem 1rem 1rem .5rem;
+    border-radius: 5px;;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.share{
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 31.25rem;
+    height: 100%;
+}
+
+.keyEmotions{
+    display: flex;
+    max-width: 60rem;
+    margin: 3rem auto;
+    justify-content: space-evenly;
+}
+
+.storyboard{
+    padding: 3rem 0;
+    border-radius: 15px;
+    margin: 6.25rem auto;
+    max-width: 60rem;
+    background-color: rgba(254, 224, 30, .7);
+}
+
+.link{
+    margin: 3rem auto;
+    padding: .5rem;
+    color: white;
+    width: 20rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: #1640AD;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: all .3s ease;
+}
+
+.link:hover{
+    filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, 0.5));
+    transform: scale(1.01);
+}
+
+.link span{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.videoplayer{
+    position: relative;
+}
+
+.playbutton {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 74px;
+    border-color: transparent transparent transparent white;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.paused {
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+    opacity: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.sharingInteraction{
+      max-width: 60rem;
+      margin: 3rem auto;
+}
+
+.sharingInteraction video{
+    display: block;
+    margin: 3rem auto;
+    border-radius: 20px;
+    width: 100%;
+    transition: display 1s;
+}
+
+.toggleButton{
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(22, 64, 173, 0.1);
+    width: 20rem;
+    height: 3rem;
+    border-radius: 15px;
+}
+
+.toggleButton span{
+    flex-basis: 50%;
+    text-align: center;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+.active{
+    left:0;
+    position: absolute;
+    z-index: 1;
+    background-color: #1640AD;
+    width: 50%;
+    height: 100%;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: transform .5s;
+}
+
+
 
 @media (min-width: 600px){
 
@@ -214,7 +410,7 @@ header img{
     h3{
         margin: auto;
         font-size: 3rem;
-        padding-bottom: 3rem;
+        
     }
 
     h4{
@@ -223,6 +419,8 @@ header img{
 
     img{
         margin: 6.25rem auto;
+        max-width: 60rem;
+        border-radius: 15px;
     }
 
 
@@ -255,21 +453,44 @@ header img{
         margin: 1rem
     }
 
+    .keyFacts{
+        flex-direction: row;
+    }
+
     .twoRows{
         margin: 6.25rem auto;
-        max-width: 70rem;
+        max-width: 60rem;
         display: flex;
-        justify-content: space-around;
-        
+        justify-content: space-evenly;
     }
 
     .twoRows img{
         margin: auto 0;
     }
 
+    .phone{
+        max-width: 23.4375rem;
+    }
+
+    .twoRows svg{
+        width: 100%;
+        max-width: 41.25rem;
+        height: 100%;
+        flex-basis: 35%;
+        margin: 0;
+    }
+
     .twoRows p{
-        flex-basis: 21rem;
+        width: 23.4375rem;
         margin:0;
-        align-self: start;
+        align-self: center;
+    }
+
+    .reverse{
+        flex-direction: row-reverse;
+    }
+
+    .toggleButton{
+        margin: 0;
     }
 }

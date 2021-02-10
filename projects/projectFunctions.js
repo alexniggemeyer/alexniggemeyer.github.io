@@ -147,19 +147,186 @@ tl
     direction: 'normal',
 })
 
+// Onlineservices 
 
+let onlineservices = document.querySelector('.onlineservices')
+let onlineserviceValue = document.querySelectorAll('.onlineserviceValue');
+
+// Share managae Verify picture
+
+
+let functionStrokes = document.querySelectorAll('.function .stroke');
+let feelStrokes = document.querySelectorAll('.feel .stroke');
+
+var tlFunction = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 2000,
+    autoplay: false,
+    round: 2
+});
+
+var tlFeel = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 2000,
+    autoplay: false,
+    round: 2
+});
+
+tlFunction
+.add({
+    targets: functionStrokes[0],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'normal',
+
+})
+.add({
+    targets: functionStrokes[2],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'normal',
+
+})
+.add({
+    targets: functionStrokes[1],
+    strokeDashoffset: [anime.setDashoffset, 380],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'reverse',
+
+})
+
+tlFeel
+.add({
+    targets: feelStrokes[0],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'normal',
+
+})
+.add({
+    targets: feelStrokes[1],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'normal',
+
+})
+.add({
+    targets: feelStrokes[2],
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    direction: 'normal',
+
+})
+
+//handling animations on scroll
+tlPlayed = false;
+tlFunctionPlayed = false;
+tlFeelPlayed = false;
 
 window.addEventListener('scroll', (e)=>{
 
-    if(counterText.getBoundingClientRect().top < 700){
-
+    if((counterText.getBoundingClientRect().top < 700 && tlPlayed == false)){
         tl.play();
+        tlPlayed = true;
+        
     }
     
+    if(onlineservices.getBoundingClientRect().top < 700){
+        anime({
+            targets: onlineserviceValue,
+            width: function(el,i){
+                return onlineserviceValue[i].textContent;
+            },
+            color: 'rgba(225,255,255, 1)' 
+        })
+    }    
+
+    if(document.querySelector('.function').getBoundingClientRect().top < 700 && tlFunctionPlayed == false){
+
+        tlFunction.play();
+        tlFunctionPlayed = true;
+    }
+
+    if(document.querySelector('.feel').getBoundingClientRect().top < 700 && tlFeelPlayed == false){
+        tlFeel.play();
+        tlFeelPlayed = true;
+    }
 
     
 });
 
 
+function openCity(evt, cityName, tabcontent, tablinks) {
+    // Declare all variables
+    var i;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName(tabcontent);
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName(tablinks);
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+
+// toggleButton
+
+let toggleArea = document.querySelectorAll('.toggleButton span');
+let activeArea = document.querySelector('.active');
+let video = document.querySelectorAll('.sharingInteraction video');
+
+toggleArea[0].setAttribute('style', 'color: white');
+video[1].setAttribute('style','display:none');
+
+toggleArea[0].addEventListener('click',(e)=>{
+    if(activeArea.style.transform == 'translateX(100%)'){
+        activeArea.setAttribute('style','transform: translateX(0%)');
+    }else{
+        activeArea.setAttribute('style','transform: translateX(100%)');
+    }
+    toggleArea[0].setAttribute('style', 'color: white');
+    toggleArea[1].setAttribute('style', 'color: black');
+
+    video[1].setAttribute('style','display:none');
+    video[0].setAttribute('style','display:block');
+    
+})
+
+toggleArea[1].addEventListener('click',(e)=>{
+    if(activeArea.style.transform == 'translateX(100%)'){
+        activeArea.setAttribute('style','transform: translateX(0%)');
+    }else{
+        activeArea.setAttribute('style','transform: translateX(100%)');
+    }
+    toggleArea[1].setAttribute('style', 'color: white');
+    toggleArea[0].setAttribute('style', 'color: black');
+
+    video[0].setAttribute('style','display:none');
+    video[1].setAttribute('style','display:block');
+    
+})
+
+let title = document.querySelectorAll('.titleBox h3');
+let titleUnderline = document.querySelectorAll('.underline')
+
+title.forEach((element,index) => {
+    let titleWidth = element.getBoundingClientRect().width;
+    titleUnderline[index].style.width = `${titleWidth + 48}px`; 
+});
 
 
